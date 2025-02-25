@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+[ "ペン", "定規", "消しゴム", "ノート", "シール" ].each do |name|
+  Product.find_or_create_by!(name: name)
+end

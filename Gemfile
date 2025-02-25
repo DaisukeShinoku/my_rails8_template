@@ -55,6 +55,11 @@ group :development, :test do
 
   # テスト用のデータ作成
   gem "factory_bot_rails"
+
+    # system test
+    gem "capybara"
+    gem "selenium-webdriver", "~> 4.29", ">= 4.29.1"
+    gem "webdrivers"
 end
 
 group :development do
