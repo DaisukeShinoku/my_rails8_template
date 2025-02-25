@@ -52,6 +52,9 @@ group :development, :test do
 
   # Testing framework
   gem "rspec-rails"
+
+  # テスト用のデータ作成
+  gem "factory_bot_rails"
 end
 
 group :development do
