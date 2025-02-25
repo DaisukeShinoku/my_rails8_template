@@ -40,8 +40,10 @@ module MyRails8Template
     config.generators.system_tests = nil
 
     # UUIDをデフォルトとする
-    config.generators do |g|
-      g.orm :active_record, primary_key_type: :uuid
-    end
+    # SQLiteでは利用不可能
+    #
+    # config.generators do |g|
+    #   g.orm :active_record, primary_key_type: :uuid
+    # end
   end
 end
