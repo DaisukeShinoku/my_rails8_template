@@ -1,17 +1,49 @@
 require "rails_helper"
 
 RSpec.describe "products", type: :system do
-  it "GET /products" do
-    products = create_list(:product, 3)
-    visit "/products"
-    products.each do |product|
+  describe "GET /products" do
+    it "プロダクト一覧が確認できること" do
+      products = create_list(:product, 3)
+      visit "/products"
+      products.each do |product|
+        expect(page).to have_content(product.name)
+      end
+    end
+  end
+
+  describe "GET /products/:id" do
+    it "プロダクト詳細が確認できること" do
+      product = create(:product)
+      visit "/products/#{product.id}"
       expect(page).to have_content(product.name)
     end
   end
 
-  it "GET /products/:id" do
-    product = create(:product)
-    visit "/products/#{product.id}"
-    expect(page).to have_content(product.name)
+  describe "GET /products/new" do
+    context "有効なプロダクト名で作成する場合" do
+      it "プロダクトが作成されること" do
+        visit "/products/new"
+
+        expect {
+          fill_in "Name", with: "Product Name"
+          click_button "Create Product"
+    
+          expect(page).to have_content("Product Name")
+        }. to change(Product, :count).by(1)
+      end
+    end
+
+    context "プロダクト名を空欄で作成する場合" do
+      it "プロダクトが作成されないこと" do
+        visit "/products/new"
+
+        expect {
+          fill_in "Name", with: ""
+          click_button "Create Product"
+    
+          expect(page).to have_content("Name can't be blank")
+        }.not_to change(Product, :count)
+      end
+    end
   end
 end
