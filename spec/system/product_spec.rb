@@ -25,9 +25,9 @@ RSpec.describe "products", type: :system do
         visit "/products/new"
 
         expect {
-          fill_in "Name", with: "Product Name"
-          click_button "Create Product"
-    
+          fill_in "名前", with: "Product Name"
+          click_button "登録する"
+
           expect(page).to have_content("Product Name")
         }. to change(Product, :count).by(1)
       end
@@ -38,10 +38,10 @@ RSpec.describe "products", type: :system do
         visit "/products/new"
 
         expect {
-          fill_in "Name", with: ""
-          click_button "Create Product"
-    
-          expect(page).to have_content("Name can't be blank")
+          fill_in "名前", with: ""
+          click_button "登録する"
+
+          expect(page).to have_content("名前を入力してください")
         }.not_to change(Product, :count)
       end
     end
