@@ -56,9 +56,12 @@ group :development, :test do
   # テスト用のデータ作成
   gem "factory_bot_rails"
 
-    # system test
-    gem "capybara"
-    gem "selenium-webdriver", "~> 4.29", ">= 4.29.1"
+  # system test
+  gem "capybara"
+  gem "selenium-webdriver", "~> 4.29", ">= 4.29.1"
+
+  # カバレッジ計測
+  gem "simplecov"
 end
 
 group :development do
