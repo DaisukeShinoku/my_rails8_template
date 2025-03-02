@@ -2,6 +2,10 @@ plugins:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+require:
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
 AllCops:
   Exclude:
     - "vendor/**/*"
@@ -43,7 +47,7 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   Max: 120
 
-StringLiterals:
+Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/EmptyMethod:
@@ -77,3 +81,6 @@ RSpec/MultipleExpectations:
 
 RSpec/ExampleLength:
   Max: 10
+
+RSpecRails/InferredSpecType:
+  Enabled: false
