@@ -24,7 +24,7 @@ RSpec.describe "products", type: :system do
 
     it "プロダクト削除ができること" do
       expect do
-        click_button "Delete"
+        click_on "Delete"
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content("Products")
       end.to change(Product, :count).by(-1)
@@ -38,7 +38,7 @@ RSpec.describe "products", type: :system do
 
         expect do
           fill_in "名前", with: "Product Name"
-          click_button "登録する"
+          click_on "登録する"
 
           expect(page).to have_content("Product Name")
         end.to change(Product, :count).by(1)
@@ -51,7 +51,7 @@ RSpec.describe "products", type: :system do
 
         expect do
           fill_in "名前", with: ""
-          click_button "登録する"
+          click_on "登録する"
 
           expect(page).to have_content("名前を入力してください")
         end.not_to change(Product, :count)
@@ -68,7 +68,7 @@ RSpec.describe "products", type: :system do
 
         expect do
           fill_in "名前", with: "Updated Product Name"
-          click_button "更新する"
+          click_on "更新する"
 
           expect(page).to have_content("Updated Product Name")
         end.to change { Product.find(product.id).name }.from(product.name).to("Updated Product Name")
@@ -81,7 +81,7 @@ RSpec.describe "products", type: :system do
 
         expect do
           fill_in "名前", with: ""
-          click_button "更新する"
+          click_on "更新する"
 
           expect(page).to have_content("名前を入力してください")
         end.not_to(change { Product.find(product.id).name })
