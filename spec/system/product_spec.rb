@@ -70,9 +70,9 @@ RSpec.describe "products", type: :system do
         expect do
           fill_in "名前", with: ""
           click_button "更新する"
-          
+
           expect(page).to have_content("名前を入力してください")
-        end.not_to change { Product.find(product.id).name }
+        end.not_to(change { Product.find(product.id).name })
       end
     end
   end
