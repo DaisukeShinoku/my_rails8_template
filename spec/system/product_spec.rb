@@ -12,10 +12,22 @@ RSpec.describe "products", type: :system do
   end
 
   describe "GET /products/:id" do
-    it "プロダクト詳細が確認できること" do
-      product = create(:product)
+    let(:product) { create(:product) }
+
+    before do
       visit "/products/#{product.id}"
+    end
+
+    it "プロダクト詳細が確認できること" do
       expect(page).to have_content(product.name)
+    end
+
+    it "プロダクト削除ができること" do
+      expect do
+        click_button "Delete"
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content("Products")
+      end.to change(Product, :count).by(-1)
     end
   end
 
