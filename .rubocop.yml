@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
@@ -43,6 +43,9 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   Max: 120
 
+StringLiterals:
+  EnforcedStyle: double_quotes
+
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
@@ -51,3 +54,26 @@ Style/AsciiComments:
 
 Style/Documentation:
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: false
+
+RSpec/MessageChain:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 10
