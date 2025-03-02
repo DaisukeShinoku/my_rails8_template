@@ -24,12 +24,12 @@ RSpec.describe "products", type: :system do
       it "プロダクトが作成されること" do
         visit "/products/new"
 
-        expect {
+        expect do
           fill_in "名前", with: "Product Name"
           click_button "登録する"
 
           expect(page).to have_content("Product Name")
-        }. to change(Product, :count).by(1)
+        end.to change(Product, :count).by(1)
       end
     end
 
@@ -37,12 +37,12 @@ RSpec.describe "products", type: :system do
       it "プロダクトが作成されないこと" do
         visit "/products/new"
 
-        expect {
+        expect do
           fill_in "名前", with: ""
           click_button "登録する"
 
           expect(page).to have_content("名前を入力してください")
-        }.not_to change(Product, :count)
+        end.not_to change(Product, :count)
       end
     end
   end
