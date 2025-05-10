@@ -312,7 +312,7 @@ GEM
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.29.1)
+    selenium-webdriver (4.32.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -412,7 +412,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-rspec_rails
-  selenium-webdriver (~> 4.29, >= 4.29.1)
+  selenium-webdriver (~> 4.32)
   simplecov
   solid_cable
   solid_cache
