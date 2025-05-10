@@ -2,10 +2,10 @@ plugins:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
-require:
   - rubocop-capybara
-  - rubocop-factory_bot
   - rubocop-rspec_rails
+require:
+  - rubocop-factory_bot
 AllCops:
   Exclude:
     - "vendor/**/*"
